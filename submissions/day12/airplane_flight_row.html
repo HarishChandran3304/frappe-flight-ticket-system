@@ -1,0 +1,19 @@
+<div>
+	<div class="card" style="margin: 1em 0; border: 1px solid #eee; border-radius: 6px; padding: 1em; box-shadow: 0 2px 6px rgba(0,0,0,0.04);">
+		<div class="card-body">
+			<h5 class="card-title" style="margin-bottom: 0.5em;">
+				<a href="{{ doc.route }}" style="text-decoration: none; color: inherit;">{{ doc.title or doc.name }}</a>
+			</h5>
+			<p class="card-text" style="margin-bottom: 0.3em; color: #555;">
+				<span style="font-weight: 500;">{{ doc.source_airport_code }}</span> &rarr; <span style="font-weight: 500;">{{ doc.destination_airport_code }}</span>
+			</p>
+			<p class="card-text" style="margin-bottom: 0.3em; color: #888;">
+				{{ frappe.utils.format_date(doc.date_of_departure, "d MMMM, YYYY") }} | {{ doc.time_of_departure }} | {{ frappe.utils.format_duration(doc.duration) }}
+			</p>
+
+			<p style="margin-top: 1em; color: rgb(0, 153, 255);">
+				<a href="flights/{{ doc.name }}">View Flight</a>
+			</p>
+		</div>
+	</div>
+</div>
