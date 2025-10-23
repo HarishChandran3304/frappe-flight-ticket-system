@@ -27,14 +27,28 @@ class AirplaneTicket(Document):
 	def allocate_seat(self):
 		self.seat = f"{randrange(1, 100)}{choice(["A", "B", "C", "D", "E"])}"
 	
+	def get_ticket_count(self):
+		ticket_count = frappe.db.count("Airplane Ticket", filters={"flight": self.flight})
+		return ticket_count
+
+	def get_airplane_capacity(self):
+		flight = frappe.get_doc("Airplane Flight", self.flight)
+		airplane = frappe.get_doc("Airplane", flight.airplane)
+		return airplane.capacity
+	
+	def is_seat_available(self):
+		return self.get_ticket_count() < self.get_airplane_capacity()
+	
 
 	def validate(self):
 		self.calculate_total_amount()
 		self.remove_deleted_add_ons()
+		if not self.is_seat_available():
+			frappe.throw("No seats available")
 	
 	def before_submit(self):
 		if self.status != "Boarded":
-			frappe.throw("Only boarded tickets can be submitted")
+			frappe.throw(f"Status: {self.status} is not allowed to be submitted")
 	
 	def before_insert(self):
 		self.allocate_seat()
