@@ -24,7 +24,9 @@
   "duration",
   "column_break_oqig",
   "time_of_departure",
-  "amended_from"
+  "amended_from",
+  "flight_crew_section",
+  "crew_members"
  ],
  "fields": [
   {
@@ -137,6 +139,17 @@
    "label": "Airplane",
    "options": "Airplane",
    "reqd": 1
+  },
+  {
+   "fieldname": "flight_crew_section",
+   "fieldtype": "Section Break",
+   "label": "Flight Crew"
+  },
+  {
+   "fieldname": "crew_members",
+   "fieldtype": "Table",
+   "label": "Crew Members",
+   "options": "Airplane Flight Crew"
   }
  ],
  "grid_page_length": 50,
@@ -150,7 +163,7 @@
    "link_fieldname": "flight"
   }
  ],
- "modified": "2025-10-23 06:25:11.473822",
+ "modified": "2025-10-23 08:51:43.336092",
  "modified_by": "Administrator",
  "module": "Airplane Mode",
  "name": "Airplane Flight",
