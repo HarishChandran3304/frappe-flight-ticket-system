@@ -1,0 +1,20 @@
+{% extends "templates/web.html" %}
+
+{% block page_content %}
+<h1>{{ title }}</h1>
+
+<h3>Shop Details</h3>
+<p>Shop Number: {{ doc.shop_number }}</p>
+<p>Shop Type: {{ doc.shop_type }}</p>
+<p>Airport: {{ doc.airport }}</p>
+<p>Area (sq.ft): {{ doc.area }}</p>
+<p>Status: {{ doc.status }}</p>
+<p>Tenant: {{ doc.tenant or None}}</p>
+<p>Rent Amount: {{ doc.rent_amount }}</p>
+
+{% if doc.status == "Available" %}
+<a class="btn btn-info" href="/airport-shop-enquiry-web-form/new/?interested_shop={{ doc.name }}">Enquire</a>
+{% endif %}
+{% endblock %}
+
+<!-- this is a sample default web page template -->

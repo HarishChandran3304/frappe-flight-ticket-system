@@ -1,0 +1,143 @@
+{
+ "actions": [],
+ "allow_guest_to_view": 1,
+ "allow_rename": 1,
+ "autoname": "field:shop_name",
+ "creation": "2025-10-23 13:46:02.453855",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "route",
+  "is_published",
+  "shop_details_section",
+  "shop_number",
+  "shop_name",
+  "shop_type",
+  "airport",
+  "area",
+  "status",
+  "tenancy_details_section",
+  "tenant",
+  "rent_amount",
+  "payments_section",
+  "rent_payments"
+ ],
+ "fields": [
+  {
+   "fieldname": "shop_number",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Shop Number",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "shop_name",
+   "fieldtype": "Data",
+   "label": "Shop Name",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "airport",
+   "fieldtype": "Link",
+   "label": "Airport",
+   "options": "Airport"
+  },
+  {
+   "fieldname": "area",
+   "fieldtype": "Float",
+   "label": "Area"
+  },
+  {
+   "default": "Available",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Available\nOccupied",
+   "reqd": 1
+  },
+  {
+   "fieldname": "shop_details_section",
+   "fieldtype": "Section Break",
+   "label": "Shop Details"
+  },
+  {
+   "fieldname": "tenancy_details_section",
+   "fieldtype": "Section Break",
+   "label": "Tenancy Details"
+  },
+  {
+   "fieldname": "tenant",
+   "fieldtype": "Link",
+   "label": "Tenant",
+   "options": "Tenant"
+  },
+  {
+   "fieldname": "rent_amount",
+   "fieldtype": "Currency",
+   "label": "Rent Amount"
+  },
+  {
+   "fieldname": "payments_section",
+   "fieldtype": "Section Break",
+   "label": "Payments"
+  },
+  {
+   "fieldname": "rent_payments",
+   "fieldtype": "Table",
+   "label": "Rent Payments",
+   "options": "Shop Rent Payment"
+  },
+  {
+   "fieldname": "route",
+   "fieldtype": "Data",
+   "label": "Route",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "is_published",
+   "fieldtype": "Check",
+   "label": "Is Published?"
+  },
+  {
+   "fieldname": "shop_type",
+   "fieldtype": "Link",
+   "label": "Shop Type",
+   "options": "Shop Type",
+   "reqd": 1
+  }
+ ],
+ "grid_page_length": 50,
+ "has_web_view": 1,
+ "index_web_pages_for_search": 1,
+ "is_published_field": "is_published",
+ "links": [],
+ "modified": "2025-10-23 15:49:28.730078",
+ "modified_by": "Administrator",
+ "module": "Airport Shop",
+ "name": "Airport Shop",
+ "naming_rule": "By fieldname",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "route": "shops",
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
